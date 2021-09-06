@@ -1,9 +1,6 @@
 package geekbrains;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.slf4j.LoggerFactory;
@@ -18,7 +15,7 @@ public class TriangleTest {
 
     @BeforeAll
     static void setUpTest(){
-        logger.info("Start out tests");
+        logger.info("Start our tests");
     }
 
 
@@ -30,6 +27,10 @@ public class TriangleTest {
         logger.info(count + " - test passed");
 
 
+    }
+    @AfterAll
+    static void downTest(){
+        logger.info("End our tests");
     }
 
     @ParameterizedTest
@@ -53,7 +54,6 @@ public class TriangleTest {
             "29,41,14"
     })
      void determineTypeTest(int a, int b, int c) {
-        Triangle.determineType(a, b, c);
         System.out.println(Triangle.determineType(a, b, c));
 
     }
