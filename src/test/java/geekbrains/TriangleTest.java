@@ -54,7 +54,7 @@ public class TriangleTest {
     })
      void determineTypeTest(int a, int b, int c) {
         Triangle.determineType(a, b, c);
-        logger.info(Triangle.determineType(a, b, c));
+        System.out.println(Triangle.determineType(a, b, c));
 
     }
 
