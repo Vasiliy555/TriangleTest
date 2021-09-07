@@ -59,11 +59,12 @@ public class TriangleTest {
     @Test
     void determineTypeTest1() {
         Assertions.assertAll(
-                () -> assertEquals( TriangleType.ISOSCELES.getType(), Triangle.determineType(2, 2, 3)),
-                () -> assertEquals( TriangleType.SCALENE.getType(), Triangle.determineType(4, 5, 6)),
                 () -> assertEquals(TriangleType.EQUILATERAL.getType(), Triangle.determineType(2, 2, 2)),
-                () -> assertEquals(TriangleType.RIGHT.getType(), Triangle.determineType(4, 3, 5)),
-                () -> assertEquals(TriangleType.INVALID.getType(), Triangle.determineType(0, 10, 10))
+                () -> assertEquals(TriangleType.ISOSCELES.getType(), Triangle.determineType(2, 2, 3)),
+                () -> assertEquals(TriangleType.SCALENE.getType(), Triangle.determineType(4, 5, 6)),
+                () -> assertEquals(TriangleType.INVALID.getType(), Triangle.determineType(0, 10, 10)),
+                () -> assertEquals(TriangleType.RIGHT.getType(), Triangle.determineType(4, 3, 5))
+
         );
     }
 }
