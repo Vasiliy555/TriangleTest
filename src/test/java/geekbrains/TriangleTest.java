@@ -26,13 +26,13 @@ public class TriangleTest {
     }
 
     @AfterEach
-    void tearDownTest() {
+    void DownTest() {
         logger.info(count + " - test end");
 
     }
 
     @AfterAll
-    static void downTest() {
+    static void tearDownTest() {
         logger.info("End our tests");
     }
 
