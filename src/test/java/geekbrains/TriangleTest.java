@@ -19,12 +19,15 @@ public class TriangleTest {
         logger.info("Start our tests");
     }
 
-
+@BeforeEach
+void UpTest() {
+    count++;
+    logger.info(count + " - test start");
+}
     @AfterEach
     void tearDownTest(){
-        count++;
-        logger.info(count + " - test passed");
 
+        logger.info(count + " - test end");
 
     }
     @AfterAll
@@ -38,6 +41,7 @@ public class TriangleTest {
             "-5, 4, 5",
             "5, 40, 5",
             "5, 4, 0",
+            "5, 5, 5",
             "29,41,14"
     })
     void areaTest(double x, double y, double z){
