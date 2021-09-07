@@ -35,6 +35,9 @@ public class TriangleTest {
     @ParameterizedTest
     @CsvSource({
             "3, 4, 5",
+            "-5, 4, 5",
+            "5, 40, 5",
+            "5, 4, 0",
             "29,41,14"
     })
     void areaTest(double x, double y, double z){
