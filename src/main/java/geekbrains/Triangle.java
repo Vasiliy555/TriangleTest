@@ -22,5 +22,4 @@ public class Triangle {
         return null;
     }
 
-
 }

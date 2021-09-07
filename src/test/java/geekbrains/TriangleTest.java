@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TriangleTest {
@@ -19,11 +20,9 @@ public class TriangleTest {
     }
 
 
-
     @AfterEach
     void tearDownTest(){
         count++;
-
         logger.info(count + " - test passed");
 
 
@@ -41,10 +40,10 @@ public class TriangleTest {
     void areaTest(double x, double y, double z){
         double u = Triangle.triangleArea(x, y, z);
         double v = (x + y + z)/2;
-        Assertions.assertEquals(Math.sqrt(v*(v-x)*(v-y)*(v-z)), u);
-
-
+        assertEquals(Math.sqrt(v*(v-x)*(v-y)*(v-z)), u);
     }
+
+
     @ParameterizedTest
     @CsvSource({
             "0, 4, 5",
@@ -54,8 +53,17 @@ public class TriangleTest {
             "29,41,14"
     })
      void determineTypeTest(int a, int b, int c) {
-        System.out.println(Triangle.determineType(a, b, c));
-
+       Triangle.determineType(a, b, c);
     }
 
+    @Test
+    void determineTypeTest1() {
+        Assertions.assertAll(
+                () -> assertEquals( TriangleType.ISOSCELES.getType(), Triangle.determineType(2, 2, 3)),
+                () -> assertEquals( TriangleType.SCALENE.getType(), Triangle.determineType(4, 5, 6)),
+                () -> assertEquals(TriangleType.EQUILATERAL.getType(), Triangle.determineType(2, 2, 2)),
+                () -> assertEquals(TriangleType.RIGHT.getType(), Triangle.determineType(4, 3, 5)),
+                () -> assertEquals(TriangleType.INVALID.getType(), Triangle.determineType(0, 10, 10))
+        );
+    }
 }
