@@ -15,22 +15,24 @@ public class TriangleTest {
 
 
     @BeforeAll
-    static void setUpTest(){
+    static void setUpTest() {
         logger.info("Start our tests");
     }
 
-@BeforeEach
-void UpTest() {
-    count++;
-    logger.info(count + " - test start");
-}
+    @BeforeEach
+    void UpTest() {
+        count++;
+        logger.info(count + " - test start");
+    }
+
     @AfterEach
-    void tearDownTest(){
+    void tearDownTest() {
         logger.info(count + " - test end");
 
     }
+
     @AfterAll
-    static void downTest(){
+    static void downTest() {
         logger.info("End our tests");
     }
 
@@ -43,10 +45,10 @@ void UpTest() {
             "5, 5, 5",
             "29,41,14"
     })
-    void areaTest(double x, double y, double z){
+    void areaTest(double x, double y, double z) {
         double u = Triangle.triangleArea(x, y, z);
-        double v = (x + y + z)/2;
-        assertEquals(Math.sqrt(v*(v-x)*(v-y)*(v-z)), u);
+        double v = (x + y + z) / 2;
+        assertEquals(Math.sqrt(v * (v - x) * (v - y) * (v - z)), u);
     }
 
 
