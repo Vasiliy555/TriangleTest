@@ -26,7 +26,6 @@ void UpTest() {
 }
     @AfterEach
     void tearDownTest(){
-
         logger.info(count + " - test end");
 
     }
@@ -51,20 +50,8 @@ void UpTest() {
     }
 
 
-    @ParameterizedTest
-    @CsvSource({
-            "0, 4, 5",
-            "5, 4, 5",
-            "3, 4, 5",
-            "5, 5, 5",
-            "29,41,14"
-    })
-     void determineTypeTest(int a, int b, int c) {
-       Triangle.determineType(a, b, c);
-    }
-
     @Test
-    void determineTypeTest1() {
+    void determineTypeTest() {
         Assertions.assertAll(
                 () -> assertEquals(TriangleType.EQUILATERAL.getType(), Triangle.determineType(2, 2, 2)),
                 () -> assertEquals(TriangleType.ISOSCELES.getType(), Triangle.determineType(2, 2, 3)),
